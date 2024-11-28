@@ -1,38 +1,193 @@
-.App {
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  color: #333;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.header {
+  background-color: #4caf50;
+  color: #fff;
   text-align: center;
+  padding: 1.5rem 0;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Dashboard */
+.dashboard {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.dashboard .stats p {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+}
+
+.income{
+  font-size: 2rem;
+}
+
+.expense{
+  color: red;
+  font-size: 1.5rem;
+}
+
+.dashboard .stats p:first-child {
+  font-weight: bold;
+}
+
+.dashboard .stats p:last-child {
+  color: #4caf50;
+  font-size: 1.3rem;
+}
+
+/* Transaction Form */
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.transaction-form input, 
+.transaction-form select, 
+.transaction-form button {
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.transaction-form input:focus, 
+.transaction-form select:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 4px rgba(76, 175, 80, 0.5);
+}
+
+.transaction-form button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.transaction-form button:hover {
+  background-color: #45a049;
+}
+
+/* Transaction List */
+.transaction-list h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.transaction-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.transaction-list li {
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.transaction-list li.income {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.transaction-list li.expense {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.transaction-form button {
+  transition: transform 0.2s ease;
+}
+
+.transaction-form button:hover {
+  transform: scale(1.02);
+}
+
+.transaction-list li {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.transaction-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.transaction-list li small {
+  display: block;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.2rem;
+}
+
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    padding: 0.8rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .dashboard {
+    padding: 0.8rem;
+  }
+
+  .transaction-form input, 
+  .transaction-form select, 
+  .transaction-form button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .transaction-list li {
+    font-size: 0.9rem;
   }
 }

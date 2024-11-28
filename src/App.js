@@ -1,25 +1,68 @@
-import logo from './logo.svg';
+// import React, { useState } from 'react';
+// import Header from './components/Header';
+// import Dashboard from './components/Dashboard';
+// import TransactionForm from './components/TransactionForm';
+// import TransactionList from './components/TransactionList';
+// import './App.css';
+
+// const App = () => {
+//   const [transactions, setTransactions] = useState([]);
+
+//   const addTransaction = (transaction) => {
+//     setTransactions([...transactions, transaction]);
+//   };
+
+//   const income = transactions
+//     .filter((t) => t.type === 'income')
+//     .reduce((acc, t) => acc + t.amount, 0);
+
+//   const expenses = transactions
+//     .filter((t) => t.type === 'expense')
+//     .reduce((acc, t) => acc + t.amount, 0);
+
+//   return (
+//     <div className="app">
+//       <Header />
+//       <Dashboard income={income} expenses={expenses} />
+//       <TransactionForm addTransaction={addTransaction} />
+//       <TransactionList transactions={transactions} />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Dashboard from './components/Dashboard';
+import TransactionForm from './components/TransactionForm';
+import TransactionList from './components/TransactionList';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [transactions, setTransactions] = useState([]);
+
+  const addTransaction = (transaction) => {
+    setTransactions([...transactions, transaction]);
+  };
+
+  const income = transactions
+    .filter((t) => t.type === 'income')
+    .reduce((acc, t) => acc + t.amount, 0);
+
+  const expenses = transactions
+    .filter((t) => t.type === 'expense')
+    .reduce((acc, t) => acc + t.amount, 0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <Dashboard income={income} expenses={expenses} />
+      <TransactionForm addTransaction={addTransaction} />
+      <TransactionList transactions={transactions} />
     </div>
   );
-}
+};
 
 export default App;
